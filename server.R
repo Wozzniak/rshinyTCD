@@ -9,7 +9,7 @@ server <- function(input, output, session) {
   
   table_indicateur <- reactive({
     df %>% 
-      dplyr::filter(Indicateur== str_extract(input$select, "^[0-9]+") & Croisement == str_remove(input$select, "^[0-9]+ - ")) %>% 
+      dplyr::filter(Indicateur== stringr::str_extract(input$select, "^[0-9]+") & Croisement == stringr::str_remove(input$select, "^[0-9]+ - ")) %>% 
       dplyr::select(where(~ any(!is.na(.)))) %>% 
       dplyr::select(-Indicateur_Croisement)
   }) 
