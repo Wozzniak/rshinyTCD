@@ -9,9 +9,9 @@ server <- function(input, output, session) {
   
   table_indicateur <- reactive({
     df %>% 
-      filter(Indicateur== str_extract(input$select, "^[0-9]+") & Croisement == str_remove(input$select, "^[0-9]+ - ")) %>% 
-      select(where(~ any(!is.na(.)))) %>% 
-      select(-Indicateur_Croisement)
+      dplyr::filter(Indicateur== str_extract(input$select, "^[0-9]+") & Croisement == str_remove(input$select, "^[0-9]+ - ")) %>% 
+      dplyr::select(where(~ any(!is.na(.)))) %>% 
+      dplyr::select(-Indicateur_Croisement)
   }) 
   
   callModule(module = shinypivottabler,
