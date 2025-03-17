@@ -21,7 +21,7 @@ library(stringr)
 # )
 
 
-data <- readRDS("BDS.Rds")
+data <- readRDS("./BDS.Rds")
 
 df <- as.data.frame(matrix(NA, nrow = 8, ncol = 211))
 colnames(df) <- colnames(data)
